@@ -25,6 +25,12 @@ while True:
     print("Direccion desde {} to {}".format(orig, dest))
     print("Duracion del viaje:   " + json_data["route"]["formattedTime"])
     print("Kilometros:           {:.1f}".format(json_data["route"]["distance"] * 1.61))
+    
+    # Cálculo del combustible requerido en litros (suponiendo un consumo promedio de 10 km/l)
+    distance_km = json_data["route"]["distance"] * 1.61
+    fuel_required_liters = distance_km / 10
+    print("Combustible requerido: {:.2f} litros".format(fuel_required_liters))
+    
     print("=============================================")
 
     for each in json_data["route"]["legs"][0]["maneuvers"]:
